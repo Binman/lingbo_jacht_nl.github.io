@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Showcase</title>
+    <title>Foto Showcase</title>
     <style>
         * {
             margin: 0;
@@ -75,6 +75,12 @@
             margin-bottom: 40px;
         }
 
+        .hero p.subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
         .hero a {
             font-size: 18px;
             color: #2997ff;
@@ -143,6 +149,9 @@
             max-width: 600px;
             table-layout: fixed;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ddd;
         }
 
         .design-table td {
@@ -151,15 +160,27 @@
             text-align: left;
             font-size: 18px;
             vertical-align: middle;
+            border-left: none;
+            border-right: none;
         }
 
         .design-table td:first-child {
             width: 40%;
             font-weight: bold;
+            border-left: none;
         }
 
         .design-table td:last-child {
             width: 60%;
+            border-right: none;
+        }
+
+        .design-table tr:first-child td {
+            border-top: none;
+        }
+
+        .design-table tr:last-child td {
+            border-bottom: none;
         }
 
         /* Gallery Section */
@@ -173,7 +194,15 @@
             font-size: 40px;
             font-weight: 600;
             text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .gallery .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            text-align: center;
             margin-bottom: 40px;
+            opacity: 0.75;
         }
 
         .gallery-grid {
@@ -291,6 +320,10 @@
                 font-size: 28px;
             }
 
+            .gallery .subtitle {
+                font-size: 14px;
+            }
+
             nav ul {
                 gap: 15px;
             }
@@ -363,38 +396,38 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#design">Jacht Design</a></li>
-            <li><a href="#gallery">Jacht Display</a></li>
+            <li><a href="#home">Thuis</a></li>
+            <li><a href="#design">Jacht Ontwerp</a></li>
+            <li><a href="#gallery">Jacht Foto's</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section class="hero" id="home">
         <h1>Lingbo-Jacht</h1>
-        <p>Your dream, Our passion.</p>
-        <!-- <a href="#gallery">View Gallery</a> -->
+        <p>Jouw droom, Onze passie.</p>
+        <p class="subtitle">Van End (CN passie) 2 End (NL dromers)</p>
     </section>
 
     <section class="jacht-design" id="design">
-        <h2>Jacht Design</h2>
+        <h2>Jacht Ontwerp</h2>
         <div class="design-container">
             <div class="design-photo">
-                <img src="images/three presepectives design.png" alt="Jacht Design">
+                <img src="images/three presepectives design.png" alt="Jacht Ontwerp">
             </div>
             <div class="design-table">
                 <table>
                     <tr>
-                        <td>Yacht Length:</td>
-                        <td>17/23 Meter (even larger options are customized)</td>
+                        <td>Jacht Lengte:</td>
+                        <td>17 of 23 Meter (nog grotere opties zijn op maat gemaakt)</td>
                     </tr>
                     <tr>
-                        <td>Yacht Width:</td>
-                        <td>4.5/5.5 Meter</td>
+                        <td>Jacht Breedte:</td>
+                        <td>4.5 of 5.5 Meter</td>
                     </tr>
                     <tr>
-                        <td>Engine Model:</td>
-                        <td>VOLVO D11 670HP (x2) or CAT-C18 747kw (x2) or VOLVO D13 900HP (x2)</td>
+                        <td>Motor Model:</td>
+                        <td>VOLVO D11 670HP (x2) of CAT-C18 747kw (x2) of VOLVO D13 900HP (x2)</td>
                     </tr>
                 </table>
             </div>
@@ -402,26 +435,28 @@
     </section>
 
     <section class="gallery" id="gallery">
-        <h2>Jacht Display</h2>
+        <h2>Jacht Foto's</h2>
+        <p class="subtitle">klik om te vergroten</p>
         <div class="gallery-grid" id="gallery-grid">
-            <!-- Photos will be dynamically added here -->
+            <!-- Foto's worden hier dynamisch toegevoegd -->
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h1>Ready to make your yacht dreams come true?</h1>
+        <h1>Klaar om je jachtdromen waar te maken?</h1>
         <div class="contact-info">
-            <p><strong>Broker:</strong> Binman | <strong>Email:</strong> xxx@gmail.com | <strong>Phone:</strong> 3456789
+            <p><strong>Makelaar:</strong> Binman | <strong>E-mail:</strong> xxx@gmail.com | <strong>Telefoon:</strong>
+                3456789
             </p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 All rights reserved</p>
+        <p>&copy; 2025 Alle rechten voorbehouden</p>
     </footer>
 
     <script>
-        // Photo data referencing local images folder
+        // Foto gegevens verwijzend naar lokale afbeeldingenmap
         const photos = [
             { src: 'images/boat 01.png', caption: 'Lingbo-jacht' },
             { src: 'images/boat 02.png', caption: 'Lingbo-jacht' },
@@ -442,7 +477,7 @@
 
         ];
 
-        // Function to populate the gallery
+        // Functie om de galerij te vullen
         function loadGallery() {
             const galleryGrid = document.getElementById('gallery-grid');
             photos.forEach(photo => {
@@ -458,7 +493,7 @@
             });
         }
 
-        // Load gallery on page load
+        // Galerij laden bij het laden van de pagina
         window.onload = loadGallery;
     </script>
 </body>
